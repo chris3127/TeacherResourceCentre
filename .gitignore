@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/trc-api/node_modules
+/trc-api/.env
 /.pnp
 .pnp.js
 
