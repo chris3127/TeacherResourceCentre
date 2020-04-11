@@ -19,4 +19,23 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/:id').get((req,res) => {
+    Document.findById(req.params.id)
+        .then(document => res.json(document))
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
+router.route('/update/:id').post((req,res) => {
+    Document.findById(req.params.id)
+        .then(document => {
+            document.title = req.body.title
+            document.link = req.body.link
+            
+            document.save()
+                .then(() => res.json('Document updated'))
+                .catch(err => res.status(400).json('Error: ' + err))
+        })
+})
+
+
 module.exports = router

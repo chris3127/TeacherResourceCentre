@@ -3,9 +3,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const documentSchema = new Schema({
-    documentId: { type: Number, required: true },
-    Title: { type: String, required: true },
-    Link: { type: String, required: true }
+    title: { type: String, required: true },
+    link: { type: String, required: true }
 },
     {
         timestamps: true,
