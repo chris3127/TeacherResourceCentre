@@ -37,7 +37,7 @@ export default class CreateDocument extends Component {
 
         console.log(document);
 
-        axios.post('http://localhost:5000/documents/add', document)
+        axios.post(process.ENV.BASE_URL + '/documents/add', document)
             .then(res => console.log(res.data))
             .then(() => window.location = '/');
     }

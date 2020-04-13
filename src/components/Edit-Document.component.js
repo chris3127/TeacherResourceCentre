@@ -51,7 +51,7 @@ export default class EditDocument extends Component {
 
     console.log(document);
 
-    axios.post('http://localhost:5000/documents/update/' + this.props.match.params.id, document)
+    axios.post(process.ENV.BASE_URL + '/documents/update/' + this.props.match.params.id, document)
       .then(res => console.log(res.data))
       .then(() => window.location = '/');
   }
