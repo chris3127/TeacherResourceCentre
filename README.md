@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# T4A2 - Full Stack Application Part B
 
-## Available Scripts
+# Teacher Resource Centre
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This application has not been successfully deployed. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The backend api was attempted to be run using Heroku but would not connect the the database.
 
-### `yarn test`
+https://git.heroku.com/teacher-resource-centre.git
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The frontend was build but not deployed.
 
-### `yarn build`
+The monorepo is available here:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+https://github.com/chris3127/TeacherResourceCentre
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Website Description
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+\- Purpose
+\- Functionality / features
+\- Target audience
+\- Tech stack
 
-### `yarn eject`
+The Teacher Resource Centre (TRC) is designed as a document storage and retrieval application and database.
+The goal is to reduce duplication of effort by making available teaching resources that are grouped by subject, year, state and level.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**The purpose** of the website is to reduce the time and effort that is required to create high quality resources for the classroom, a task that is generally undertaken out of work hours, to reduce the workload of teachers outside the classroom.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**The functionality** of the TRC MVP attempted to connect to a document database where a teacher could see a list of documents available which would correspond to lessons to teach. They would be able to add new documents and edit existing ones.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Post-MVP will have a login function to identify users, more data fields for the documents and filtering based on lesson requirements.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The initial login function will serve to identify each individual user. During the initial phase, each user will have access to all the resources in the database, however this will change as users will be grouped and access limited to the resource group they have paid for.
 
-## Learn More
+The search functionality has been simplified after User Testing. Previously the documents were filtered based on year, state, level and subject, however that was found to be too complex so all documents are now displayed when the website is opened for a simple User Experience (UX).  Future iterations will incorporate filtering to remove unnecessary documents and user roles will restrict the ability to edit and delete documents.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The backend database will not store the resources directly, rather links and descriptions to enable faster searching. The resources will be stored in a larger database, and cached in local CDNs for faster delivery, similar to the Spotify architecture.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**The target audience** of the application is teachers and educators who, as Australia moves to a national curriculum, are now required to create all new resources for their lessons. Having a pool of high quality resources available will allow teachers and educators to focus on better classroom experiences tailored to the level of their students and compliant with the relevant state Department of Education guidelines. Ultimately, it aims to give teachers more time to focus on the students and less time spent creating resources and preparing for departmental audits.
 
-### Code Splitting
+**The Tech Stack** of the application will be a MERN stack. The front-end framework will be React, the back-end framework will be Express, the Javascript runtime environment will be Node and the database will be MongoDB Atlas.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Dataflow Diagram
 
-### Making a Progressive Web App
+The TRC dataflow diagram is located in the docs folder (TRCDataflow.pdf).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Application Architecture Diagram
 
-### Deployment
+The TRC application architecture diagram is located in the docs folder (TRCArchitecture.pdf).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+It covers a high level overview of the MVP application. There are 5 specific parts covering the presentation layer, authentication, business logic (including middleware), the Mongo database and file storage.
 
-### `yarn build` fails to minify
+**1.** Presentation layer is primarily React and Javascript with a small amount of HTML.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**2.** The authentication will be run through the middleware PassportJS using Javascript Web Tokens to authenticate the API endpoints
+
+**3.** The business logic will be written in Javascript. The server runtime environment will be using NodeJS with an ExpressJS framework. 
+
+Middleware including Helmet for secuity, bodyparser for API calls and mongoose to connect to the Mongo database. 
+
+**4.** The database that will be used is MongoDB Atlas. Queries will be passed in the MVP in GET requests, to return JSON data.
+
+**5.** The main resource storage will be separate from the queried database. The individual resources will be linked to allow the user to download the resource independently. This structure may change post-MVP to further control access to the resources.
+
+
+
+## Wireframes
+
+Wireframes were created in InVision Studio and accessible through this link to view as one. 
+
+https://chris621770.invisionapp.com/freehand/TRC-7E6npicO9?v=1nAxpcGuPdOxhkssz9ygXg%3D%3D&linkshare=urlcopied
+
+Individual page screenshots are included in the docs folder.
+
+Link to images hosted on imgur:
+
+https://imgur.com/a/geJwf6b
+
+
+
+
+
+## Trello
+
+Screenshots of Trello project workflow in docs folder. 
+
+The board is set up with Agile methodology in mind. As user stories that encompass specific functionality are created as a new card they are put in the backlog and assigned a priority tag. Cards that are to be worked on during the sprint are relocated to the To Do list, and when work begins they are moved to the In Progess list. Upon completion they are sent to the review list to undergo code review and testing before being moved to the Done list. 
+
+Currently the MVP user stories relating the querying the database and logging in securely are being worked on as they are high priority, with the additional functionality of adding records to the database and adding user groups to determine access, deemed lower priorty and will be part of the sprint post-MVP. 
