@@ -58,7 +58,7 @@ It covers a high level overview of the MVP application. There are 5 specific par
 
 **1.** Presentation layer is primarily React and Javascript with a small amount of HTML.
 
-**2.** The authentication will be run through the middleware PassportJS using Javascript Web Tokens to authenticate the API endpoints
+**2.** The authentication will be run through the middleware PassportJS using Javascript Web Tokens to authenticate the API endpoints. (not complete)
 
 **3.** The business logic will be written in Javascript. The server runtime environment will be using NodeJS with an ExpressJS framework. 
 
@@ -92,4 +92,5 @@ Screenshots of Trello project workflow in docs folder.
 
 The board is set up with Agile methodology in mind. As user stories that encompass specific functionality are created as a new card they are put in the backlog and assigned a priority tag. Cards that are to be worked on during the sprint are relocated to the To Do list, and when work begins they are moved to the In Progess list. Upon completion they are sent to the review list to undergo code review and testing before being moved to the Done list. 
 
-Currently the MVP user stories relating the querying the database and logging in securely are being worked on as they are high priority, with the additional functionality of adding records to the database and adding user groups to determine access, deemed lower priorty and will be part of the sprint post-MVP. 
+Currently the MVP user story relating to accessing the database is working locally but is unable to connect to the database through Heroku. The functionality of adding and editing records was incorporated and the secure login and user identification has been moved to post MVP sprint.
+
