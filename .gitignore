@@ -6,7 +6,7 @@
 /trc-api/.env
 /.pnp
 .pnp.js
-
+.env
 # testing
 /coverage
 

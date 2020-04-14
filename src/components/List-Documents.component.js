@@ -20,7 +20,8 @@ export default class DocumentList extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.ENV.BASE_URL + '/documents')
+    console.log(process.env.REACT_APP_BASE_URL)
+    axios.get(process.env.REACT_APP_BASE_URL + '/documents')
       .then(response => {
         this.setState({ documents: response.data })
       })

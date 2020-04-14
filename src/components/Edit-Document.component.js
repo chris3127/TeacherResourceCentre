@@ -17,7 +17,7 @@ export default class EditDocument extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/documents/'+this.props.match.params.id)
+    axios.get(process.env.REACT_APP_BASE_URL + '/documents/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           title: response.data.title,
@@ -51,7 +51,7 @@ export default class EditDocument extends Component {
 
     console.log(document);
 
-    axios.post(process.ENV.BASE_URL + '/documents/update/' + this.props.match.params.id, document)
+    axios.post(process.env.REACT_APP_BASE_URL + '/documents/update/' + this.props.match.params.id, document)
       .then(res => console.log(res.data))
       .then(() => window.location = '/');
   }
